@@ -63,7 +63,7 @@ export default function SpellChecker() {
           <Link href="/" className="text-2xl font-bold text-zinc-100">Grammerless</Link>
           <nav>
             <Link 
-              href="LOL" 
+              href="https://github.com/aravind-manoj/useless-project" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-zinc-100 hover:text-zinc-300 transition-colors"
