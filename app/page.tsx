@@ -50,6 +50,7 @@ export default function SpellChecker() {
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const newText = e.target.value;
     setText(newText);
+    console.log(newText);
     const spellCheckErrors = performSpellCheck(newText);
     setErrors(spellCheckErrors);
   };
@@ -95,8 +96,6 @@ export default function SpellChecker() {
             spellCheck={false}
           />
         </div>
-
-        {/* Spelling Errors Panel */}
         <div className="bg-zinc-900 p-4 overflow-auto" aria-live="polite">
           <div className="text-sm font-medium mb-4">Spelling Errors</div>
           {errors.length > 0 ? (
