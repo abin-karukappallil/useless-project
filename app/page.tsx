@@ -52,6 +52,7 @@ export default function SpellChecker() {
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const newText = e.target.value;
     setText(newText);
+    console.log(newText);
     const spellCheckErrors = performSpellCheck(newText);
     setErrors(spellCheckErrors);
   };
@@ -98,6 +99,20 @@ export default function SpellChecker() {
                         {i + 1}
                       </div>
                     ))}
+        <div className="bg-zinc-900 p-4 overflow-auto" aria-live="polite">
+          <div className="text-sm font-medium mb-4">Spelling Errors</div>
+          {errors.length > 0 ? (
+            <div className="space-y-3">
+              {errors.map((error, index) => (
+                <div key={index} className="flex items-start gap-2 text-sm">
+                  <AlertCircle className="h-4 w-4 text-red-500 mt-0.5" />
+                  <div>
+                    <div className="text-red-500">
+                      "{error.word}" might be misspelled
+                    </div>
+                    <div className="text-zinc-500 text-xs">
+                      Line {error.line}, Column {error.column}
+                    </div>
                   </div>
                 </div>
                 <textarea
