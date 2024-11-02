@@ -1,4 +1,3 @@
-import uvicorn
 from fastapi import FastAPI
 from huggingface_hub import InferenceClient
 
@@ -35,6 +34,3 @@ def format(text: str):
         return {"status": "success", "message": res}
     except:
         return {"status": "failed", "message": "Internal Server Error"}
-
-if __name__ == "__main__":
-    uvicorn.run(app, port=8000)
