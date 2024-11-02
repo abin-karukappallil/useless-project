@@ -25,7 +25,7 @@ const staggerChildren = {
   }
 }
 
-const AnimatedCard = ({ children, delay = 0 }) => {
+const AnimatedCard = ({ children:{children:any}, delay = 0 }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
