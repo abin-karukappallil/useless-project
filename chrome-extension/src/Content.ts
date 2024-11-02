@@ -1,53 +1,69 @@
-import { runtime } from 'webextension-polyfill'
+import { runtime } from 'webextension-polyfill';
 
 type TextMessage = {
     key: string;
     type: string;
     value: string;
-}
+};
 
-const inputs = document.querySelectorAll('input[type="text"], textarea');
+const inputs = document.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('input[type="text"], textarea');
 
 const sendText = (event: Event) => {
-    const text = (event.target as HTMLInputElement | HTMLTextAreaElement).value;
+    const target = event.target as HTMLInputElement | HTMLTextAreaElement;
+    const text = target.value;
     runtime.sendMessage({ type: 'textChange', key: "", value: text });
-}
+};
 
-const sendExecute = (event: Event) => {
-    const text = (event.target as HTMLInputElement | HTMLTextAreaElement).value;
-    runtime.sendMessage({ type: 'execute', key: "", value: text }).then((response) => {
-        let cursorPos = (event.target as HTMLInputElement | HTMLTextAreaElement).selectionStart;
-        console.log(response);
-        if (response){
-            let beforeCursor = text.substring(0, cursorPos!);
-            let afterCursor = text.substring(cursorPos!);
-            (event.target as HTMLInputElement | HTMLTextAreaElement).value = (beforeCursor + afterCursor).replace((response as TextMessage).key, (response as TextMessage).value);
-            (event.target as HTMLInputElement | HTMLTextAreaElement).selectionStart = (event.target as HTMLInputElement | HTMLTextAreaElement).selectionEnd = text.indexOf((response as TextMessage).key) + (response as TextMessage).value.length;
+const sendExecute = async (event: KeyboardEvent) => {
+    const target = event.target as HTMLInputElement | HTMLTextAreaElement;
+    const text = target.value;
+    const cursorPos = target.selectionStart;
+
+    try {
+        const response = await runtime.sendMessage({ type: 'execute', key: "", value: text });
+        if (response) {
+            const { key, value } = response as TextMessage;
+            const beforeCursor = text.substring(0, cursorPos!);
+            const afterCursor = text.substring(cursorPos!);
+            
+            target.value = beforeCursor.replace(key, value) + afterCursor;
+            const newCursorPos = beforeCursor.indexOf(key) + value.length;
+            target.selectionStart = target.selectionEnd = newCursorPos;
         }
-    });
-}
+    } catch (error) {
+        console.error("Error in sendExecute:", error);
+    }
+};
 
 inputs.forEach(input => {
     input.addEventListener('input', sendText);
     input.addEventListener('paste', sendText);
-    input.addEventListener('keydown', (event: any) => {
-        if (event.key === 'Backspace' || event.key === 'Delete') {
+    input.addEventListener('keydown', (event) => {
+        const keyboardEvent = event as KeyboardEvent;
+        if (keyboardEvent.key === 'Backspace' || keyboardEvent.key === 'Delete') {
             sendText(event);
         }
-        if (event.key === "Enter") {
-            sendExecute(event);
+        if (keyboardEvent.key === "Enter") {
+            keyboardEvent.preventDefault(); 
+            sendExecute(keyboardEvent);
         }
     });
 });
 
-// runtime.onMessage.addListener(async (message: unknown, sender, sendResponse) => {
-//     console.log((message as TextMessage).element.value);
-//     (message as TextMessage).element.value = "haha";
-//     console.log((message as TextMessage).element.value);
+runtime.onMessage.addListener(async (message: unknown, sender, sendResponse) => {
+    if (typeof message === 'object' && message !== null && 'type' in message) {
+        const { type, key, value } = message as TextMessage;
 
-    // if ((message as TextMessage).type === 'textUpdate') {
-    //     (message as TextMessage).element.value = (message as TextMessage).element.value.replace((message as TextMessage).key, (message as TextMessage).value);
-    // }
-// });
+        if (type === 'textUpdate') {
+            const target = document.activeElement as HTMLInputElement | HTMLTextAreaElement;
+            if (target) {
+                target.value = target.value.replace(key, value);
+                console.log("Updated value:", target.value);
+                sendResponse({ success: true });
+            }
+        }
+    }
+    return true;
+});
 
-export {}
+export {};
