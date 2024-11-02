@@ -9,7 +9,7 @@ root.render(
   <React.StrictMode>
     <div className="popup">
       <header className="headerSection">
-        <h1>Grammerless</h1>
+        <h1>Fumbl-iFy</h1>
       </header>
       <div className="contentWrap">
         <h4>abinthomas.dev</h4>
