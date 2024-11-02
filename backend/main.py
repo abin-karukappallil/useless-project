@@ -1,9 +1,8 @@
+import os
 from fastapi import FastAPI
 from huggingface_hub import InferenceClient
 
-HF_TOKEN = process.env.TOKEN
-
-client = InferenceClient(token=HF_TOKEN)
+client = InferenceClient(token=os.environ['HF_TOKEN'])
 
 def generate_text(input_text):
     model_id = "HuggingFaceH4/zephyr-7b-beta"
@@ -28,7 +27,7 @@ def generate_text(input_text):
 app = FastAPI()
 
 @app.get("/request")
-def format(text: str):
+def request(text: str):
     try:
         res = generate_text(text)
         return {"status": "success", "message": res}
