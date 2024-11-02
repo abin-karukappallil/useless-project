@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from huggingface_hub import InferenceClient
 
-HF_TOKEN = "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"
+HF_TOKEN = process.env.TOKEN
 
 client = InferenceClient(token=HF_TOKEN)
 
