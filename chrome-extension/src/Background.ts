@@ -13,7 +13,7 @@ type TextMessage = {
 var data: string = "";
 
 const apiRequest = async (text: string) => {
-    const res = await fetch(`http://localhost:8000/request?text=${text}`);
+    const res = await fetch(`https://useless-project-drab.vercel.app/request?text=${text}`);
     console.log(res);
     if (res.ok){
         const jsonData = await res.json();
