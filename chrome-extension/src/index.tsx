@@ -13,8 +13,6 @@ root.render(
       </header>
       <div className="contentWrap">
         <h4>abinthomas.dev</h4>
-        <h2>Blocked: 0</h2>
-        <h4>Total Blocked: 123</h4>
       </div>
       <div className="togglerWrap">
         <label className="switch">
@@ -24,6 +22,11 @@ root.render(
           <span className="slider round"></span>
         </label>
       </div>
+      <footer>
+        <div className='footerr'>
+          <h4><a href="https://abinthomas.dev">Visit our site</a></h4>
+        </div>
+      </footer>
     </div>
   </React.StrictMode>
 );
