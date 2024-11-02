@@ -33,3 +33,7 @@ def request(text: str):
         return {"status": "success", "message": res}
     except:
         return {"status": "failed", "message": "Internal Server Error"}
+
+@app.get("/")
+def request():
+    return {"status": "ok"}

@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "GrammerLess",
+    "name": "Fumbl-iFy",
     "version": "1.0.0",
-    "description": "Your Grammering Partnar",
+    "description": "Your AI companion for Web",
     "icons": {},
     "background": {
       "service_worker": "./static/js/background.js"
