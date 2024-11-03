@@ -1,6 +1,6 @@
 # Fumbl-ify: Turning Seriousness into Silliness!
 
-Fumbl-ify is a Chrome extension that takes any topic and humorously rephrases it into an exaggerated, silly version. It’s designed to bring a bit of levity and laughter to otherwise mundane or serious topics.
+Fumbl-iFy is a Chrome extension designed to inject a playful twist into any topic by generating absurd or nonsensical responses. This extension is usable on any website with text input fields and allows users to activate the feature with a simple command: `ify("your text")`. The input text is then sent to an AI model hosted on Hugging Face, which generates a useless response that appears in the input field where the command was invoked.
 
 ---
 
@@ -28,10 +28,11 @@ Our extension, Fumbl-ify, injects ridiculous, humorous spins on user-provided to
 ### Technologies/Components Used
 
 #### For Software:
-- **Languages**: TypeScript, JavaScript
-- **Frameworks**: React, Tailwind CSS,NextJs
-- **Backend**:Python
-- **Libraries**: `webextension-polyfill` for Chrome extension compatibility
+- **Languages**: TypeScript, JavaScript, Python
+- **Frameworks**: React, NextJs, Tailwind CSS 
+- **Backend**: FastAPI with Hugging Face API
+- **AI Model**: HuggingFaceH4/zephyr-7b-beta
+- **Libraries**: `webextension-polyfill` for chrome extension
 - **Tools**: Chrome Developer Tools, VS Code, Git
 
 #### For Hardware:
@@ -39,23 +40,52 @@ No hardware components are required as this is a purely software-based project.
 
 ### Implementation
 
-1. The user inputs a topic in the Chrome extension.
-2. The extension processes the input and generates a humorously exaggerated version.
-3. Output is displayed to the user in a light-hearted, informal format.
+1. User Interaction: The user types ify("some text") into any input field or textarea on a website.
+2. Capturing Input: The extension utilizes the `webextension-polyfill` library to interact with the DOM, capturing the user’s input when the command is detected.
+3. Processing Input: The captured text is sent to the AI model `HuggingFaceH4/zephyr-7b-beta` hosted on Hugging Face, which generate a humorously exaggerated or absurd response.
+4. Displaying Output: The generated response is displayed back in the input field and consists of useless or nonsensical content, providing a humorous twist to the original topic.
 
 ---
 
 ## Installation
 
-Clone the repository and install dependencies:
+Clone the repository:
 
 ```bash
 git clone https://github.com/aravind-manoj/useless-project
-cd useless-project
+```
+
+For setting up website:
+
+```bash
+cd useless-project/web
 npm install
 
 For local testing:
 npm run dev
+
+To build the site for production:
+npm run build
+```
+
+For setting up Hugging Face API:
+
+```bash
+cd useless-project/backend
+
+To install dependencies:
+pip3 install -r requirements.txt
+
+To start the backend:
+uvicorn main:app --port 8000
+```
+Note: Hugging Face API token is required and it must be set in environment as `HF_TOKEN`. [API Docs](https://huggingface.co/docs/api-inference/)
+
+For setting up chrome extension:
+
+```bash
+cd useless-project/chrome-extension
+npm install
 
 To build the extension for production:
 npm run build
