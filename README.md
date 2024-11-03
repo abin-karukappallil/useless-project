@@ -93,40 +93,44 @@ npm run build
 
 
 # Project Documentation
-For Software:
 
-Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name) Add caption explaining what this shows
+## API Permissions
 
-![Screenshot2](Add screenshot 2 here with proper name) Add caption explaining what this shows
+These are the required permissions for Hugging Face API Token:
+<img width="1258" alt="hfapi" src="https://github.com/user-attachments/assets/34c73237-d905-4ce7-8eab-a985fe7829fd">
 
-![Screenshot3](Add screenshot 3 here with proper name) Add caption explaining what this shows
+## Backend API
 
-Diagrams
-![Workflow](Add your workflow/architecture diagram here) Add caption explaining your workflow
+<img width="1512" alt="api" src="https://github.com/user-attachments/assets/a0676e4b-97b3-48dc-b16f-6138ec44b4ad">
 
-For Hardware:
+## Extension UI
 
-Schematic & Circuit
-![Circuit](Add your circuit diagram here) Add caption explaining connections
+<img width="298" alt="extension-ui" src="https://github.com/user-attachments/assets/79bbdb54-c41d-4caa-9d5e-6b5701a54900">
 
-![Schematic](Add your schematic diagram here) Add caption explaining the schematic
+## Web UI
 
-Build Photos
-![Components](Add photo of your components here) List out all components shown
+<img width="729" alt="web-ui" src="https://github.com/user-attachments/assets/88ce03dc-2a10-40e7-bb5a-cda0e547999e">
 
-![Build](Add photos of build process here) Explain the build steps
+## Responsive UI
 
-![Final](Add photo of final product here) Explain the final build
+<img width="313" alt="responsive-ui" src="https://github.com/user-attachments/assets/ce634d16-60ff-4349-ae1d-8fba0338cc95">
 
 # Project Demo
-Video
-[Add your demo video link here] Explain what the video demonstrates
 
-Additional Demos
-[Add any extra demo materials/links]
+**How to use the chrome extension:**
+
+https://github.com/user-attachments/assets/009436a1-fc96-4177-bbab-adc19cde5adf
+
+# Additional Demo
+
+**How to build and install chrome extension:**
+
+https://github.com/user-attachments/assets/f9fd24d2-898a-474f-a0d3-ffdbdcd49361
 
 # Team Contributions
-[Name 1]: [Specific contributions]
-[Name 2]: [Specific contributions]
-[Name 3]: [Specific contributions]
+
+**Aravind Manoj**: AI, Backend, Extension
+
+**Abin Thomas**: Extension UI, Extension, Web UI
+
+**Abin Raju Daniel**: Extension UI, Web UI, Documentation
