@@ -30,7 +30,7 @@ Our extension, Fumbl-ify, injects ridiculous, humorous spins on user-provided to
 #### For Software:
 - **Languages**: TypeScript, JavaScript
 - **Frameworks**: React, Tailwind CSS,NextJs
-- - **Backend**:Python
+- **Backend**:Python
 - **Libraries**: `webextension-polyfill` for Chrome extension compatibility
 - **Tools**: Chrome Developer Tools, VS Code, Git
 
