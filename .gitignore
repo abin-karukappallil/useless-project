@@ -17,15 +17,16 @@
 /.next/
 /out/
 
+# python
+.venv
+__pycache__/
+
 # production
 /build
 
 # misc
 .DS_Store
 *.pem
-
-# venv
-.venv
 
 # debug
 npm-debug.log*
