@@ -10,22 +10,17 @@ import favicon from '../public/favicon.ico'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
+interface AnimatedCardProps {
+  children: React.ReactNode;
+  delay?: number;
+}
+
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
 }
 
-const staggerChildren = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
-}
-
-const AnimatedCard = ({ children, delay = 0 }) => {
+const AnimatedCard: React.FC<AnimatedCardProps> = ({ children, delay = 0 }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -113,7 +108,7 @@ export default function SpellChecker() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-lg text-center text-zinc-300">
-                    The "fumbl-ify" project is a satirical Chrome extension that transforms any given topic into a humorous, exaggerated version of itself. Instead of providing straightforward or factual content, it deliberately reinterprets topics in an over-the-top, playful way. This aligns with the theme of "Useless Projects", where typically practical tools are reimagined to deliver unexpected, comedic results.
+                    The &ldquo;Fumbl-ify&rdquo; project is a satirical Chrome extension that transforms any given topic into a humorous, exaggerated version of itself. Instead of providing straightforward or factual content, it deliberately reinterprets topics in an over-the-top, playful way. This aligns with the theme of &ldquo;Useless Projects&rdquo;, where typically practical tools are reimagined to deliver unexpected, comedic results.
                   </p>
                 </CardContent>
               </Card>
