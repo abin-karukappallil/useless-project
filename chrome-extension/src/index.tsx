@@ -20,16 +20,18 @@ const App = () => {
   useEffect(() => {
     const fetchToggleState = async () => {
       const result = await Browser.storage.local.get('isActive') as StorageResult;
+      await Browser.runtime.sendMessage({ type: 'toggle', isActive: result.isActive });
       setIsActive(Boolean(result.isActive));
     };
 
     fetchToggleState();
-  }, [isActive]);
+  }, []);
 
   const handleToggle = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const newState = e.target.checked;
     setIsActive(newState);
     await Browser.storage.local.set({ isActive: newState });
+    console.log(await Browser.storage.local.get('isActive') as StorageResult);
     await Browser.runtime.sendMessage({ type: 'toggle', isActive: newState });
   };
 
@@ -62,9 +64,9 @@ const App = () => {
         <h2 className="howToUseTitle">How to use?</h2>
         <div className="howToUseDivider"></div>
         <div className="howToUseContent">
-          <p>{`• You can call iFy() on any textarea/input field.`}</p>
-          <p>{`• iFy() enhances your typing experience!`}</p>
-          <p>{`Example usuage: iFy("hello") or iFy("Tell a joke")`}</p>
+          <p>{`• You can call ify() on any textarea/input field.`}</p>
+          <p>{`• ify() enhances your typing experience!`}</p>
+          <p>{`Example usuage: ify("hello") or ify("Tell a joke")`}</p>
         </div>
       </div>
       <div className="versionInfo">

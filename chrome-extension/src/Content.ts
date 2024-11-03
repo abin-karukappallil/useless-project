@@ -4,7 +4,13 @@ import type { TextMessage } from './Background';
 
 interface StorageResult {
     isActive?: boolean;
-  }
+}
+
+const startup = async () => {
+    const result = await Browser.storage.local.get('isActive') as StorageResult;
+    await Browser.runtime.sendMessage({ type: 'toggle', isActive: result.isActive });
+}
+startup();
 
 const inputs = document.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('input[type="text"], textarea');
 
@@ -21,7 +27,7 @@ const sendExecute = async (event: Event) => {
     const original = (event.target as HTMLInputElement | HTMLTextAreaElement).style.outlineColor;
     if (patternSingleQuotes.test(text) || patternDoubleQuotes.test(text) && (await Browser.storage.local.get('isActive') as StorageResult).isActive){
         (event.target as HTMLInputElement | HTMLTextAreaElement).style.outlineColor = "rgb(134 76 206)";
-        element.textContent = "Fumbl-iFy is thinking...";
+        element.textContent = "iFy is thinking...";
         element.style.position = 'fixed';
         element.style.top = '0';
         element.style.right = '0';
@@ -60,21 +66,5 @@ inputs.forEach(input => {
         }
     });
 });
-
-// runtime.onMessage.addListener(async (message: unknown, sender, sendResponse) => {
-//     if (typeof message === 'object' && message !== null && 'type' in message) {
-//         const { type, key, value } = message as TextMessage;
-
-//         if (type === 'textUpdate') {
-//             const target = document.activeElement as HTMLInputElement | HTMLTextAreaElement;
-//             if (target) {
-//                 target.value = target.value.replace(key, value);
-//                 console.log("Updated value:", target.value);
-//                 sendResponse({ success: true });
-//             }
-//         }
-//     }
-//     return true;
-// });
 
 export {};

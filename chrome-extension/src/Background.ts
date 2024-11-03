@@ -1,7 +1,7 @@
 import Browser, { runtime } from 'webextension-polyfill';
 
-const patternSingleQuotes = /\buseless\('.*?'\)/;
-const patternDoubleQuotes = /\buseless\(".*?"\)/;
+const patternSingleQuotes = /\bify\('.*?'\)/;
+const patternDoubleQuotes = /\bify\(".*?"\)/;
 
 type TextMessage = {
     key: string;
@@ -29,6 +29,7 @@ const apiRequest = async (text: string) => {
 runtime.onMessage.addListener(async (message: unknown, sender, sendResponse) => {
     if ((message as ToggleMessage).type === 'toggle') {
         isActive = (message as ToggleMessage).isActive;
+        console.log(isActive);
     }
     if (!isActive){
         return false;
@@ -39,22 +40,22 @@ runtime.onMessage.addListener(async (message: unknown, sender, sendResponse) => 
     if ((message as TextMessage).type === 'execute') {
         data = (message as TextMessage).value;
         if (patternDoubleQuotes.test(data)){
-            let query = data.split('useless("')[1].split('"')[0].replace("\n", "");
+            let query = data.split('ify("')[1].split('"')[0].replace("\n", "");
             if (query.length > 0){
                 const api: any = await apiRequest(query);
                 console.log(query);
                 if (api){
-                    return { type: "textUpdate", key: `useless("${query}")`, value: api.message }
+                    return { type: "textUpdate", key: `ify("${query}")`, value: api.message }
                 }
             }
         }
         if (patternSingleQuotes.test(data)){
-            let query = data.split("useless('")[1].split("'")[0].replace("\n", "");
+            let query = data.split("ify('")[1].split("'")[0].replace("\n", "");
             if (query.length > 0){
                 const api: any = await apiRequest(query);
                 console.log(query);
                 if (api){
-                    return { type: "textUpdate", key: `useless('${query}')`, value: api.message }
+                    return { type: "textUpdate", key: `ify('${query}')`, value: api.message }
                 }
             }
         }
