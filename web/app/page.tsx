@@ -106,7 +106,7 @@ export default function Component() {
                       className="flex items-center space-x-4"
                     >
                       <Link href="/" className="flex items-center space-x-2">
-                        <span className="text-2xl font-bold bg-gradient-to-r from-primary to-purple-600 text-transparent bg-clip-text">
+                        <span className="text-2xl font-bold bg-gradient-to-r from-red-400 to-purple-600 text-transparent bg-clip-text">
                           Fumbl-iFy
                         </span>
                       </Link>
