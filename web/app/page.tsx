@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react"
 import { Github, FileText, Info, BookOpen, ChevronDown } from "lucide-react"
-import Link from "next/link"
+import Link from "next/link";
+import { redirect } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import {
@@ -32,7 +33,10 @@ export default function Component() {
     return () => clearTimeout(timer)
   }, [])
 
-  const decorativeShapes = (
+  const handleClick = () =>{
+    redirect('https://github.com/aravind-manoj/useless-project');
+  }
+    const decorativeShapes = (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       <motion.div
         className="absolute top-20 right-[20%] w-64 h-64 rounded-full bg-purple-500/20 blur-3xl"
@@ -278,7 +282,7 @@ export default function Component() {
                   transition={{ delay: 0.7 }}
                   className="mt-16 text-center"
                 >
-                  <Button size="lg" className="bg-primary hover:bg-primary/90">
+                  <Button onClick={handleClick} size="lg" className="bg-primary hover:bg-primary/90">
                     Download Extension
                   </Button>
                 </motion.div>
