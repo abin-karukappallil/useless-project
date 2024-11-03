@@ -7,7 +7,6 @@ body, h1, h2, h4, p, div {
 
 body {
   width: 300px;
-  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,31 +18,59 @@ body {
 
 .popup {
   text-align: center;
+  width: 300px;
 }
 
-/* Full-width header */
 .headerSection {
-  background-color: #636363;
-  width: 100vw;
-  padding-top: 50px;
-  margin-bottom: 40px;
+  background-color: #353535;
+  width: 300px;
+  padding: 15px 0;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.logoTitle {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
 }
 
 .headerSection h1 {
   font-size: 1.28em;
   color: #ecf0f1;
-  padding: 10px;
-  margin: 0;     
+  margin: 0;
+}
+
+.settingsIcon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
 .contentWrap {
-  margin: 10px 0;
-  color: #bdc3c7;
+  margin-top: 50px;
+  height: 40px;
 }
 
 .togglerWrap {
-  margin-top: 20px;
-  margin-bottom: 100px;
+  margin-top: 10px;
+  height: 60px;
+}
+
+.toggleInstructionText {
+  margin-top: 25px;
+  color: #a3a3a3;
+  text-decoration: underline;
 }
 
 .switch {
@@ -91,6 +118,50 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
+.howToUseSection {
+  margin-top: 35px;
+  padding: 0 15px;
+  text-align: left;
+}
+
+.howToUseTitle {
+  font-size: 1.3em;
+  padding: 0 5px;
+  color: #ecf0f1;
+  margin-bottom: 10px;
+}
+
+.howToUseDivider {
+  height: 1px;
+  background-color: #4a4a4a;
+  margin-bottom: 10px;
+}
+
+.howToUseContent {
+  font-size: 1.0em;
+  padding: 0 6px;
+  color: #b9b9b9;
+}
+
+.howToUseContent p {
+  margin-bottom: 5px;
+}
+
+.versionInfo {
+  text-align: center;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+.versionNumber {
+  font-size: 0.9em;
+  color: #919191;
+  text-decoration: underline;
+}
+
 a {
   text-decoration: none;
   color: whitesmoke;
@@ -99,28 +170,21 @@ a {
   align-items: center;
 }
 
-footer h4 {
-  display: flex;
-  align-items: center;
-  padding: 15px;
-}
-
-/* Full-width footer */
 footer {
-  height: 50px;
-  margin-top: 50px;
-  background: #636363;
-  width: 100vw;
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background: #353535;
+  width: 300px;
+  padding: 15px 0;
 }
 
-.footerr {
+.footerContent {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  padding: 0 15px;
+}
+
+.githubIcon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }

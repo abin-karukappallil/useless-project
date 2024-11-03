@@ -18,7 +18,7 @@ let data: string = "";
 let isActive: boolean = false;
 
 const apiRequest = async (text: string) => {
-    const res = await fetch(`https://useless-project-drab.vercel.app/request?text=${text}`);
+    const res = await fetch(`https://fumbl-ify-api.vercel.app/request?text=${text}`);
     if (res.ok) {
         const jsonData = await res.json();
         return jsonData.status === "success" ? jsonData : false;
