@@ -34,7 +34,7 @@ export default function Component() {
   }, [])
 
   const handleClick = () =>{
-    redirect('https://github.com/aravind-manoj/useless-project');
+    redirect('https://github.com/aravind-manoj/useless-project/releases');
   }
     const decorativeShapes = (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
