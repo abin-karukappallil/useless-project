@@ -1,9 +1,15 @@
 {
     "manifest_version": 3,
     "name": "Fumbl-iFy",
-    "version": "1.0.0",
-    "description": "Your AI companion for Web",
-    "icons": {},
+    "version": "1.2.5",
+    "description": "Fumbl-iFy is a Chrome extension designed to inject a playful twist into any topic by generating intentionally absurd or nonsensical responses. Usable on any website with input fields, this tool lets users activate the feature with a simple command, iFy('your text').",
+    "icons": {
+      "16": "icon16.ico",
+      "32": "icon32.ico",
+      "48": "icon48.ico",
+      "64": "icon64.ico",
+      "128": "icon128.ico"
+    },
     "background": {
       "service_worker": "./static/js/background.js"
     },
