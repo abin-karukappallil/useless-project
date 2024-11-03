@@ -16,11 +16,11 @@ const App = () => {
   useEffect(() => {
     const fetchToggleState = async () => {
       const result = await Browser.storage.local.get('isActive') as StorageResult;
-      setIsActive(Boolean(result.isActive));  
+      setIsActive(Boolean(result.isActive));
     };
 
     fetchToggleState();
-  }, []);
+  }, [isActive]);
 
   const handleToggle = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const newState = e.target.checked;
