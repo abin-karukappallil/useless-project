@@ -1,50 +1,65 @@
+# Fumbl-ify: Turning Seriousness into Silliness!
 
-# Project Title
+Fumbl-ify is a Chrome extension that takes any topic and humorously rephrases it into an exaggerated, silly version. It’s designed to bring a bit of levity and laughter to otherwise mundane or serious topics.
 
-A brief description of what this project does and who it's for
+---
 
-# Oru Chat Bot 🎯
+## 🎯 Team: console.log()
 
-#### Team Name: console.log() 
+- **Team Lead**: Aravind Manoj - SJCET Palai
+- **Member 2**: Abin Thomas - SJCET Palai
+- **Member 3**: Abin Raju Daniel - SJCET Palai
 
-# Team Members
+---
 
-Team Lead: Aravind Manoj - SJCET Palai
-
-Member 2: Abin Thomas -SJCET Palai
-
-Member 3: Abin RajuDaniel - SJCET Palai
-
-# Project Description
-[2-3 lines about what your project does]
+## Project Description
+Fumbl-ify is a Chrome extension that takes any topic and humorously rephrases it into an exaggerated, silly version. It’s designed to bring a bit of levity and laughter to otherwise mundane or serious topics.
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+People often take things way too seriously. Important or formal topics can be, let’s face it, a bit dry. We thought—what if there were a way to add a splash of humor to any topic?
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+Our extension, Fumbl-ify, injects ridiculous, humorous spins on user-provided topics. It’s like having your own personal jester who turns mundane topics into quirky, amusing ones at the click of a button!
 
-# Technical Details
+---
+
+## Technical Details
+
 ### Technologies/Components Used
-### For Software:
 
-[Languages used]
-[Frameworks used]
-[Libraries used]
-[Tools used]
-For Hardware:
+#### For Software:
+- **Languages**: TypeScript, JavaScript
+- **Frameworks**: React, Tailwind CSS
+- **Libraries**: `webextension-polyfill` for Chrome extension compatibility
+- **Tools**: Chrome Developer Tools, VS Code, Git
 
-[List main components]
-[List specifications]
-[List tools required]
-Implementation
-For Software:
+#### For Hardware:
+No hardware components are required as this is a purely software-based project.
 
-# Installation
-[commands]
+### Implementation
 
-Run
-[commands]
+1. The user inputs a topic in the Chrome extension.
+2. The extension processes the input and generates a humorously exaggerated version.
+3. Output is displayed to the user in a light-hearted, informal format.
+
+---
+
+## Installation
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/aravind-manoj/useless-project
+cd useless-project
+npm install
+
+For local testing:
+npm run dev
+
+To build the extension for production:
+npm run build
+```
+
 
 # Project Documentation
 For Software:
