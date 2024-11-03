@@ -1,4 +1,4 @@
-# Fumbl-ify: Turning Seriousness into Silliness!
+# Fumbl-iFy: Turning Seriousness into Silliness!
 
 Fumbl-iFy is a Chrome extension designed to inject a playful twist into any topic by generating absurd or nonsensical responses. This extension is usable on any website with text input fields and allows users to activate the feature with a simple command: `ify("your text")`. The input text is then sent to an AI model hosted on Hugging Face, which generates a useless response that appears in the input field where the command was invoked.
 
