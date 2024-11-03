@@ -29,7 +29,6 @@ const apiRequest = async (text: string) => {
 runtime.onMessage.addListener(async (message: unknown, sender, sendResponse) => {
     if ((message as ToggleMessage).type === 'toggle') {
         isActive = (message as ToggleMessage).isActive;
-        console.log(isActive);
     }
     if (!isActive){
         return false;
@@ -43,7 +42,6 @@ runtime.onMessage.addListener(async (message: unknown, sender, sendResponse) => 
             let query = data.split('ify("')[1].split('"')[0].replace("\n", "");
             if (query.length > 0){
                 const api: any = await apiRequest(query);
-                console.log(query);
                 if (api){
                     return { type: "textUpdate", key: `ify("${query}")`, value: api.message }
                 }
@@ -53,7 +51,6 @@ runtime.onMessage.addListener(async (message: unknown, sender, sendResponse) => 
             let query = data.split("ify('")[1].split("'")[0].replace("\n", "");
             if (query.length > 0){
                 const api: any = await apiRequest(query);
-                console.log(query);
                 if (api){
                     return { type: "textUpdate", key: `ify('${query}')`, value: api.message }
                 }

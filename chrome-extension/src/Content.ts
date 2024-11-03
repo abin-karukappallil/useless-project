@@ -44,7 +44,6 @@ const sendExecute = async (event: Event) => {
         (event.target as HTMLInputElement | HTMLTextAreaElement).style.outlineColor = original;
         document.body.removeChild(element);
         let cursorPos = (event.target as HTMLInputElement | HTMLTextAreaElement).selectionStart;
-        console.log(response);
         if (response){
             let beforeCursor = text.substring(0, cursorPos!);
             let afterCursor = text.substring(cursorPos!);

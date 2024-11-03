@@ -31,7 +31,6 @@ const App = () => {
     const newState = e.target.checked;
     setIsActive(newState);
     await Browser.storage.local.set({ isActive: newState });
-    console.log(await Browser.storage.local.get('isActive') as StorageResult);
     await Browser.runtime.sendMessage({ type: 'toggle', isActive: newState });
   };
 
