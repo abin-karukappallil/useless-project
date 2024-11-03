@@ -2,7 +2,7 @@ import os
 from fastapi import FastAPI
 from huggingface_hub import InferenceClient
 
-client = InferenceClient(token=os.environ['HF_TOKEN'])
+client = InferenceClient(token=os.environ['HF_TOKEN']) # https://huggingface.co/docs/api-inference/
 
 def generate_text(input_text):
     model_id = "HuggingFaceH4/zephyr-7b-beta"

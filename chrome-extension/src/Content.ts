@@ -33,7 +33,7 @@ const sendExecute = async (event: Event) => {
         element.style.right = '0';
         element.style.borderRadius = '0 0 0 10px';
         element.style.backgroundColor = 'rgb(134 76 206)';
-        element.style.padding = '12px 15px';
+        element.style.padding = '12px 20px';
         element.style.zIndex = '1000';
         element.style.pointerEvents = 'none';
         element.style.fontFamily = '"Helvetica Neue", Arial, sans-serif';
