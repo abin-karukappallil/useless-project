@@ -10,7 +10,7 @@ jobs:
         - name: node install
           uses: actions/setup-node@v2
           with: 
-            node-version: 18
+            node-version: 20
         
         - name: install depsss
           working-directory: chrome-extension
