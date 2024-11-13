@@ -12,23 +12,23 @@ jobs:
           with: 
             node-version: 18
         
-        - name: Changing Directory
-          run: cd chrome-extension
-
         - name: install depsss
+          working-directory: chrome-extension
           run: npm install
           
         - name: Build files
+          working-directory: chrome-extension
           run: npm build
 
         - name: zipps build folder
+          working-directory: chrome-extension
           run: zip -r build.zip ./build
 
         - name: upoads to artifact
-        - uses: actions@upload-artifact@v2
+        - uses: actions/upload-artifact@v2
           with : 
             name: build
-            path: build.zip
+            path: chrome-extension/build.zip
 
   release: 
     needs: build
@@ -57,7 +57,7 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:
           upload_url: ${{steps.create-release.outputs.upload_url}}
-          asset_path: ./build.zip
+          asset_path: build.zip
           asset_name: build.zip
           asset_content_type: application/zip
           
