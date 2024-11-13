@@ -25,7 +25,7 @@ jobs:
           run: zip -r build.zip ./build
 
         - name: upoads to artifact
-          uses: actions/upload-artifact@v2
+          uses: actions/upload-artifact@v4
           with : 
             name: build
             path: chrome-extension/build.zip
@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: Downloading build files from artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with: 
           name: build
 
