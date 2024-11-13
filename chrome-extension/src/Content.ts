@@ -25,7 +25,7 @@ const sendExecute = async (event: Event) => {
     const element = document.createElement('div');
     document.body.appendChild(element);
     const original = (event.target as HTMLInputElement | HTMLTextAreaElement).style.outlineColor;
-    if (patternSingleQuotes.test(text) || patternDoubleQuotes.test(text) && (await Browser.storage.local.get('isActive') as StorageResult).isActive){
+    if ((patternSingleQuotes.test(text) || patternDoubleQuotes.test(text)) && (await Browser.storage.local.get('isActive') as StorageResult).isActive) {
         (event.target as HTMLInputElement | HTMLTextAreaElement).style.outlineColor = "rgb(134 76 206)";
         element.textContent = "iFy is thinking...";
         element.style.position = 'fixed';
